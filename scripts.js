@@ -11,6 +11,7 @@ const quizData = [
     { question: "Identify the muscle indicated by the arrow:", image: "https://i.imgur.com/6UD8k2m.png", options: ["Interspinous ligament", "Latissimus dorsi", "Trapezius", "Longissimus"], answer: "Trapezius" },
     { question: "Identify the muscle indicated below:", image: "https://i.imgur.com/LxdEi3j.jpg", options: ["Suspenders", "Laminous ligament", "Iliocostalis", "Longissimus"], answer: "Iliocostalis" },
     { question: "Identify the muscle indicated below:", image: "https://i.imgur.com/9vGkEcZ.jpg", options: ["Iliocostalis", "Ligament flavum", "Latissimus dorsi", "Longissimus"], answer: "Longissimus" }
+    { question: "Identify the indicated structure:", image: "https://i.imgur.com/EoX9Qlw.png", options: ["Anterior sacral foramina", "Sacral Hiatus", "Posterior sacral foramina", "Superior articular process"], answer: "Superior articular process" }
 ];
 
 let currentQuestionIndex = 0;
