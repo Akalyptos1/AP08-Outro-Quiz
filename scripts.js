@@ -55,4 +55,12 @@ function checkAnswer(selectedOption, correctAnswer) {
         selectedOption.classList.add("correct");
         score++;
     } else {
-       
+        selectedOption.classList.add("incorrect");
+    }
+    setTimeout(() => {
+        currentQuestionIndex++;
+        loadQuestion();
+    }, 1000);
+}
+
+loadQuestion();
