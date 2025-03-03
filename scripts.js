@@ -21,7 +21,6 @@ const questionImage = document.getElementById("question-image");
 const optionsList = document.getElementById("options-list");
 const finalScoreElement = document.getElementById("final-score");
 
-// Shuffle questions for randomness
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -30,7 +29,6 @@ function shuffleArray(array) {
 }
 shuffleArray(quizData);
 
-// Load the next question
 function loadQuestion() {
     if (currentQuestionIndex >= quizData.length) {
         questionElement.textContent = "Well done! You have completed the quiz.";
@@ -40,12 +38,10 @@ function loadQuestion() {
         finalScoreElement.style.display = "block";
         return;
     }
-    
     const currentQuestion = quizData[currentQuestionIndex];
     questionElement.textContent = currentQuestion.question;
     questionImage.src = currentQuestion.image;
     optionsList.innerHTML = "";
-
     currentQuestion.options.forEach(option => {
         const li = document.createElement("li");
         li.textContent = option;
@@ -54,7 +50,6 @@ function loadQuestion() {
     });
 }
 
-// Check answer and move to next question
 function checkAnswer(selectedOption, correctAnswer) {
     if (selectedOption.textContent === correctAnswer) {
         selectedOption.classList.add("correct");
@@ -62,12 +57,10 @@ function checkAnswer(selectedOption, correctAnswer) {
     } else {
         selectedOption.classList.add("incorrect");
     }
-
     setTimeout(() => {
         currentQuestionIndex++;
         loadQuestion();
     }, 1000);
 }
 
-// Start the quiz
 loadQuestion();
