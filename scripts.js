@@ -1,4 +1,7 @@
-const quizData = [
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM fully loaded. Initializing quiz...");
+    
+    const quizData = [
     { question: "What is the primary function of the structure shown?", image: "https://i.imgur.com/SHPhuF1.png", options: ["Primarily supports the Earth", "Primarily supports flexion of the thoracic spine", "Primarily supports the skull", "Primarily allows for rotational movement of the head"], answer: "Primarily supports the skull" },
     { question: "Identify the structure shown:", image: "https://i.imgur.com/gFonko5.png", options: ["Atypical Lumbar vertebrae", "Atypical thoracic vertebrae", "Typical thoracic vertebrae", "Typical cervical vertebrae"], answer: "Typical thoracic vertebrae" },
     { question: "Which sentence correctly describes the indicated passage and what anatomical structure passes through it?", image: "https://i.imgur.com/EJX5GaL.png", options: ["Intervertebral foramen allowing the cranial nerve IV to pass", "Intervertebral foramen allowing the spinal cord to pass", "Transverse foramen allowing the spinal cord to pass", "Transverse foramen allowing the cranial nerve IV to pass"], answer: "Intervertebral foramen allowing the spinal cord to pass" },
@@ -14,54 +17,89 @@ const quizData = [
     { question: "Identify the indicated structure:", image: "https://i.imgur.com/EoX9Qlw.png", options: ["Anterior sacral foramina", "Sacral Hiatus", "Posterior sacral foramina", "Superior articular process"], answer: "Superior articular process" }
 ];
 
+ let currentQuestionIndex = 0;
+    let score = 0;
+    let timeLeft = 180;
+    let timerInterval;
 
-let currentQuestionIndex = 0;
-let score = 0;
-const questionElement = document.getElementById("question");
-const questionImage = document.getElementById("question-image");
-const optionsList = document.getElementById("options-list");
-const finalScoreElement = document.getElementById("final-score");
+    const questionElement = document.getElementById("question");
+    const questionImage = document.getElementById("question-image");
+    const optionsList = document.getElementById("options-list");
+    const finalScoreElement = document.getElementById("final-score");
+    const timerElement = document.getElementById("timer");
 
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
     }
-}
-shuffleArray(quizData);
 
-function loadQuestion() {
-    if (currentQuestionIndex >= quizData.length) {
+    shuffleArray(quizData);
+
+    function startTimer() {
+        if (timerInterval) clearInterval(timerInterval);
+        console.log("Timer started...");
+
+        timerInterval = setInterval(() => {
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                endQuiz();
+            } else {
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerElement.textContent = `Time Left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                timeLeft--;
+            }
+        }, 1000);
+    }
+
+    function loadQuestion() {
+        if (currentQuestionIndex >= quizData.length) {
+            endQuiz();
+            return;
+        }
+
+        const currentQuestion = quizData[currentQuestionIndex];
+        questionElement.textContent = currentQuestion.question;
+        questionImage.src = currentQuestion.image;
+        questionImage.onerror = () => {
+            questionImage.src = "https://via.placeholder.com/500x300?text=Image+Not+Available";
+        };
+        optionsList.innerHTML = "";
+
+        currentQuestion.options.forEach(option => {
+            const li = document.createElement("li");
+            li.textContent = option;
+            li.onclick = () => checkAnswer(li, currentQuestion.answer);
+            optionsList.appendChild(li);
+        });
+    }
+
+    function checkAnswer(selectedOption, correctAnswer) {
+        if (selectedOption.textContent === correctAnswer) {
+            selectedOption.classList.add("correct");
+            score++;
+        } else {
+            selectedOption.classList.add("incorrect");
+        }
+
+        setTimeout(() => {
+            currentQuestionIndex++;
+            loadQuestion();
+        }, 1000);
+    }
+
+    function endQuiz() {
+        clearInterval(timerInterval);
         questionElement.textContent = "Well done! You have completed the quiz.";
         optionsList.innerHTML = "";
         questionImage.style.display = "none";
         finalScoreElement.textContent = `Your final score is ${score}/${quizData.length}.`;
         finalScoreElement.style.display = "block";
-        return;
+        timerElement.style.display = "none";
     }
-    const currentQuestion = quizData[currentQuestionIndex];
-    questionElement.textContent = currentQuestion.question;
-    questionImage.src = currentQuestion.image;
-    optionsList.innerHTML = "";
-    currentQuestion.options.forEach(option => {
-        const li = document.createElement("li");
-        li.textContent = option;
-        li.onclick = () => checkAnswer(li, currentQuestion.answer);
-        optionsList.appendChild(li);
-    });
-}
 
-function checkAnswer(selectedOption, correctAnswer) {
-    if (selectedOption.textContent === correctAnswer) {
-        selectedOption.classList.add("correct");
-        score++;
-    } else {
-        selectedOption.classList.add("incorrect");
-    }
-    setTimeout(() => {
-        currentQuestionIndex++;
-        loadQuestion();
-    }, 1000);
-}
-
-loadQuestion();
+    startTimer();
+    loadQuestion();
+});
