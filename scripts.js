@@ -1,17 +1,17 @@
 const quizData = [
-    { question: "What is the primary function of the structure shown?", image: "https://i.imgur.com/SHPhuF1.png", options: ["Primarily supports the Earth", "Primarily supports flexion of the thoracic spine", "Primarily supports the skull", "Primarily allows for rotational movement of the head"], answer: "Primarily supports the skull" },
-    { question: "Identify the structure shown:", image: "https://i.imgur.com/gFonko5.png", options: ["Atypical Lumbar vertebrae", "Atypical thoracic vertebrae", "Typical thoracic vertebrae", "Typical cervical vertebrae"], answer: "Typical thoracic vertebrae" },
-    { question: "Which sentence correctly describes the indicated passage and what anatomical structure passes through it?", image: "https://i.imgur.com/EJX5GaL.png", options: ["Intervertebral foramen allowing the cranial nerve IV to pass", "Intervertebral foramen allowing the spinal cord to pass", "Transverse foramen allowing the spinal cord to pass", "Transverse foramen allowing the cranial nerve IV to pass"], answer: "Intervertebral foramen allowing the spinal cord to pass" },
-    { question: "Identify the indicated structure:", image: "https://i.imgur.com/vf5ClmN.png", options: ["Sacral promontory", "Sacral hiatus", "Anterior sacral foramina", "Superior articular process"], answer: "Sacral hiatus" },
-    { question: "Identify the anatomical name for the indicated structures:", image: "https://i.imgur.com/JKPGnmw.png", options: ["Posterior sacral foramina", "Articular surface for lumbosacral joint", "Anterior sacral foramina", "Superior articular process"], answer: "Anterior sacral foramina" },
-    { question: "Identify the indicated structure:", image: "https://i.imgur.com/0UCkUmP.png", options: ["Sacroiliac joint", "Intervertebral disc", "Zygapophyseal joint", "Anulus fibrosus"], answer: "Intervertebral disc" },
-    { question: "Identify the indicated structure:", image: "https://i.imgur.com/AFK4sOr.png", options: ["Intervertebral disc", "Sacroiliac joint", "Anulus fibrosus", "Zygapophyseal joint"], answer: "Zygapophyseal joint" },
-    { question: "Identify the ligament indicated by the arrow:", image: "https://i.imgur.com/Ab82OzS.png", options: ["Supraspinous ligament", "Ligament flavum", "Intervertebral disc", "Interspinous ligament"], answer: "Interspinous ligament" },
-    { question: "Identify the muscle indicated by the arrow:", image: "https://i.imgur.com/ql4OHz4.png", options: ["Rhomboid major", "Rhomboid minor", "Laminous ligament", "Iliocostalis"], answer: "Rhomboid major" },
-    { question: "Identify the muscle indicated by the arrow:", image: "https://i.imgur.com/6UD8k2m.png", options: ["Interspinous ligament", "Latissimus dorsi", "Trapezius", "Longissimus"], answer: "Trapezius" },
-    { question: "Identify the muscle indicated below:", image: "https://i.imgur.com/LxdEi3j.jpg", options: ["Suspenders", "Laminous ligament", "Iliocostalis", "Longissimus"], answer: "Iliocostalis" },
-    { question: "Identify the muscle indicated below:", image: "https://i.imgur.com/9vGkEcZ.jpg", options: ["Iliocostalis", "Ligament flavum", "Latissimus dorsi", "Longissimus"], answer: "Longissimus" },
-    { question: "Identify the indicated structure:", image: "https://i.imgur.com/EoX9Qlw.png", options: ["Anterior sacral foramina", "Sacral Hiatus", "Posterior sacral foramina", "Superior articular process"], answer: "Superior articular process" }
+    { question: "Identify the structure shown:", image: "https://i.imgur.com/SHPuF1.png", options: ["The C1 vertebra", "The C2 vertebra", "Cervical vertebra", "Thoracic vertebra"], answer: "The C1 vertebra" },
+    { question: "Identify the structure shown:", image: "https://i.imgur.com/maAjJQP.png", options: ["The C1 vertebra", "The C2 vertebra", "Cervical vertebra", "Thoracic vertebra"], answer: "The C2 vertebra" },
+    { question: "Identify the structure shown:", image: "https://i.imgur.com/AJxFHJd.png", options: ["Atypical cervical vertebra", "Typical cervical vertebra", "Typical thoracic vertebra", "Typical lumbar vertebra"], answer: "Typical cervical vertebra" },
+    { question: "Identify the structure shown:", image: "https://i.imgur.com/6gZjgL.png", options: ["Typical cervical vertebra", "Atypical cervical vertebra", "Typical thoracic vertebra", "Typical lumbar vertebra"], answer: "Typical lumbar vertebra" },
+    { question: "Identify the covered structure:", image: "https://i.imgur.com/98WceP8.png", options: ["Anterior sacral foramina", "Articular surface for lumbosacral joint", "Posterior sacral foramina", "Ala"], answer: "Ala" },
+    { question: "Identify the indicated structure:", image: "https://i.imgur.com/50hZB0a.png", options: ["Ala", "Sacral hiatus", "Posterior sacral foramina", "Superior articular process"], answer: "Ala" },
+    { question: "Identify the anatomical name for the structures shown:", image: "https://i.imgur.com/LZJSRaP.png", options: ["Anterior sacral foramina", "Posterior sacral foramina", "Articular surface for lumbosacral joint", "Superior articular process"], answer: "Posterior sacral foramina" },
+    { question: "Identify the ligament which normally runs on the indicated area:", image: "https://i.imgur.com/LU4e1Vv.png", options: ["Supraspinous ligament", "Intervertebral disc", "Ligament flavum", "Interspinous ligament"], answer: "Ligament flavum" },
+    { question: "Identify the ligament indicated by the arrow:", image: "https://i.imgur.com/kQIx82Q.png", options: ["Supraspinous ligament", "Ligament flavum", "Ligamentum nuchae", "Interspinous ligament"], answer: "Ligamentum nuchae" },
+    { question: "Identify the ligament which normally runs on the indicated area:", image: "https://i.imgur.com/W4ZwTKv.png", options: ["Interspinous ligament", "Laminous ligament", "Anterior longitudinal ligament", "Ligament flavum"], answer: "Anterior longitudinal ligament" },
+    { question: "Identify the muscle indicated by the arrow:", image: "https://i.imgur.com/hbjvFdi.png", options: ["Spinalis", "Trapezius", "Levator scapulae", "Latissimus dorsi"], answer: "Latissimus dorsi" },
+    { question: "Identify the muscle indicated by the arrow:", image: "https://i.imgur.com/HDi9yCE.png", options: ["Levator scapulae", "Rhomboid major", "Trapezius", "Rhomboid minor"], answer: "Levator scapulae" },
+    { question: "Identify the muscle indicated below:", image: "https://i.imgur.com/yScRAao.jpg", options: ["Trapezius", "Iliocostalis", "Spinalis", "Rhomboid major"], answer: "Iliocostalis" }
 ];
 
 let currentQuestionIndex = 0;
@@ -21,6 +21,7 @@ const questionImage = document.getElementById("question-image");
 const optionsList = document.getElementById("options-list");
 const finalScoreElement = document.getElementById("final-score");
 
+// Shuffle questions for randomness
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -29,6 +30,7 @@ function shuffleArray(array) {
 }
 shuffleArray(quizData);
 
+// Load the next question
 function loadQuestion() {
     if (currentQuestionIndex >= quizData.length) {
         questionElement.textContent = "Well done! You have completed the quiz.";
@@ -38,10 +40,12 @@ function loadQuestion() {
         finalScoreElement.style.display = "block";
         return;
     }
+    
     const currentQuestion = quizData[currentQuestionIndex];
     questionElement.textContent = currentQuestion.question;
     questionImage.src = currentQuestion.image;
     optionsList.innerHTML = "";
+
     currentQuestion.options.forEach(option => {
         const li = document.createElement("li");
         li.textContent = option;
@@ -50,6 +54,7 @@ function loadQuestion() {
     });
 }
 
+// Check answer and move to next question
 function checkAnswer(selectedOption, correctAnswer) {
     if (selectedOption.textContent === correctAnswer) {
         selectedOption.classList.add("correct");
@@ -57,10 +62,12 @@ function checkAnswer(selectedOption, correctAnswer) {
     } else {
         selectedOption.classList.add("incorrect");
     }
+
     setTimeout(() => {
         currentQuestionIndex++;
         loadQuestion();
     }, 1000);
 }
 
+// Start the quiz
 loadQuestion();
